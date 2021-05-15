@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Admin\IAdmin.cs" />
     <Compile Include="Admin\Admin.cs" />
+    <Compile Include="Client\Client.cs" />
+    <Compile Include="Client\IClient.cs" />
     <Compile Include="Helper\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
