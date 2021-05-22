@@ -3,8 +3,9 @@
 namespace RadixBackOfficeAPI
 {
     using Helper;
-   
+
     using System.Web.Http;
+    using System.Web.Http.Cors;
 
     public static class WebApiConfig
     {
@@ -19,6 +20,8 @@ namespace RadixBackOfficeAPI
             config.MessageHandlers.Add(new WrappingHandler());
 
             config.Filters.Add(new APIExceptionFilterAttribute());
+            var cors = new EnableCorsAttribute("*", "*", "*");// { SupportsCredentials=true};
+            config.EnableCors(cors); 
             UnityConfig.RegisterComponents();
             config.MapHttpAttributeRoutes();
 
