@@ -17,7 +17,7 @@ namespace RadixBackOfficeAPI.Controllers
 
         [HttpGet]
         [Route("api/Client")]
-        [CacheFilter(TimeDuration = 100000)]
+     
         public IHttpActionResult GET(int productId)
         {
             var result = GlobalCaching.GetCacheData(productId.ToString());
