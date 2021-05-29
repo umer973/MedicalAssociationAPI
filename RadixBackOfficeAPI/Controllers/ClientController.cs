@@ -17,25 +17,19 @@ namespace RadixBackOfficeAPI.Controllers
 
         [HttpGet]
         [Route("api/Client")]
-     
+
         public IHttpActionResult GET(int productId)
         {
-            var result = GlobalCaching.GetCacheData(productId.ToString());
+
+            var result = _IClient.GetClients(productId);
+
             if (result != null)
             {
-                return Ok(result);
+                //GlobalCaching.CacheData(productId.ToString(),result, System.DateTimeOffset.UtcNow.AddDays(1));
+                _IClient.GetClients(productId);
             }
-            else
-            {
-                result = _IClient.GetClients(productId);
 
-                if (result != null)
-                {
-                    GlobalCaching.CacheData(productId.ToString(),result, System.DateTimeOffset.UtcNow.AddDays(1));
-                    _IClient.GetClients(productId);
-                }
 
-            }
 
             return Ok(result);
 
