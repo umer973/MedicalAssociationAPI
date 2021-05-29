@@ -36,7 +36,7 @@ namespace RadixBackOfficeAPI.Controllers
                     }
                     else
                     {
-                        return Ok("Invalid credentails");
+                        return Ok();
                     }
 
                 }
