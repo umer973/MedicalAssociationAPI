@@ -6,7 +6,7 @@ namespace BusinessLogic.Admin
 {
     using DataModel.Models;
     using DbHelper.DbContext;
-    using Helper;
+ 
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -30,7 +30,7 @@ namespace BusinessLogic.Admin
             }
             catch (Exception ex)
             {
-                Logger.LogError("Admin:Login", ex.Message);
+                //Logger.LogError("Admin:Login", ex.Message);
                 throw;
             }
 

@@ -4,6 +4,7 @@ namespace RadixBackOfficeAPI
 {
     using BusinessLogic.Admin;
     using BusinessLogic.Client;
+    using BusinessLogic.Partner;
     using System.Web.Http;
     using Unity;
     using Unity.WebApi;
@@ -20,6 +21,7 @@ namespace RadixBackOfficeAPI
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<IAdmin, Admin>();
             container.RegisterType<IClient, Client>();
+            container.RegisterType<IPartner, Partner>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
