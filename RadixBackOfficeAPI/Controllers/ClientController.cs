@@ -21,12 +21,11 @@ namespace RadixBackOfficeAPI.Controllers
         public IHttpActionResult GET(int productId)
         {
 
-
             var result = _IClient.GetClients(productId);
 
             if (result != null)
             {
-                // GlobalCaching.CacheData(productId.ToString(),result, System.DateTimeOffset.UtcNow.AddDays(1));
+                //GlobalCaching.CacheData(productId.ToString(),result, System.DateTimeOffset.UtcNow.AddDays(1));
                 _IClient.GetClients(productId);
             }
 
