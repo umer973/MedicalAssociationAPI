@@ -43,8 +43,8 @@ namespace BusinessLogic.Enquiry
                         {"ContactNo",enquiry.ContactNo},
                         {"Email",enquiry.Email},
                         {"Trade",enquiry.Trade },
-                        {"Comments",enquiry.Comments },
-                        {"ExistingUser",enquiry.ExistingUser }
+                        {"Comments",enquiry.Comments }
+                       // {"ExistingUser",enquiry.ExistingUser==true?1:0 }
 
                     });
                     return result;
