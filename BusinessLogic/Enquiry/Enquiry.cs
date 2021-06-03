@@ -44,9 +44,8 @@ namespace BusinessLogic.Enquiry
                         {"ContactNo",enquiry.ContactNo},
                         {"Comments",enquiry.Comments },
                         {"ExistingUser",enquiry.ExistingUser },
-                        {"Trade",enquiry.Trade },
-                        {"Comments",enquiry.Comments },
-                        {"ExistingUser",enquiry.ExistingUser }
+                        {"Trade",enquiry.Trade }
+                       
 
                     });
                     return result;
