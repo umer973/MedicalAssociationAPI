@@ -40,11 +40,11 @@ namespace BusinessLogic.Enquiry
                     var result = query.ExecuteNonQuery("InsertEnquiry", new Dictionary<string, object>
                     {
                         {"FullName",enquiry.FullName },
-                        {"ContactNo",enquiry.ContactNo},
                         {"Email",enquiry.Email},
-                        {"Trade",enquiry.Trade },
+                        {"ContactNo",enquiry.ContactNo},
                         {"Comments",enquiry.Comments },
-                        {"ExistingUser",enquiry.ExistingUser }
+                        {"ExistingUser",enquiry.ExistingUser },
+                        {"Trade",enquiry.Trade },
 
                     });
                     return result;
