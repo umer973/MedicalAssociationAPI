@@ -60,6 +60,8 @@
     <Compile Include="Admin\Admin.cs" />
     <Compile Include="Client\Client.cs" />
     <Compile Include="Client\IClient.cs" />
+    <Compile Include="Enquiry\Enquiry.cs" />
+    <Compile Include="Enquiry\IEnquiry.cs" />
     <Compile Include="Partner\IPartner.cs" />
     <Compile Include="Partner\Partner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

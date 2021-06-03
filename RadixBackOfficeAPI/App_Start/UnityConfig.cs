@@ -4,6 +4,7 @@ namespace RadixBackOfficeAPI
 {
     using BusinessLogic.Admin;
     using BusinessLogic.Client;
+    using BusinessLogic.Enquiry;
     using BusinessLogic.Partner;
     using System.Web.Http;
     using Unity;
@@ -13,7 +14,7 @@ namespace RadixBackOfficeAPI
     {
         public static void RegisterComponents()
         {
-			var container = new UnityContainer();
+            var container = new UnityContainer();
 
             // register all your components with the container here
             // it is NOT necessary to register your controllers
@@ -22,6 +23,7 @@ namespace RadixBackOfficeAPI
             container.RegisterType<IAdmin, Admin>();
             container.RegisterType<IClient, Client>();
             container.RegisterType<IPartner, Partner>();
+            container.RegisterType<IEnquiry, Enquiry>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
