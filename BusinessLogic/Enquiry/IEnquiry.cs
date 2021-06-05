@@ -13,7 +13,7 @@ namespace BusinessLogic.Enquiry
 
         List<EnquiryModel> GetEnquiry();
 
-
+        int InsertDownloads(DownloadModel download);
 
 
     }

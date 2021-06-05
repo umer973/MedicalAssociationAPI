@@ -60,5 +60,27 @@ namespace RadixBackOfficeAPI.Controllers
 
         }
 
+
+        [HttpPost]
+        [Route("api/SaveDownloads")]
+        public IHttpActionResult PostDownload(JObject request)
+        {
+            try
+            {
+                var download = JsonConvert.DeserializeObject<DownloadModel>(request.ToString());
+                if (download != null)
+                {
+                    var response = _IEnquiry.InsertDownloads(download);
+
+                    return Ok(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return Ok();
+        }
+
     }
 }

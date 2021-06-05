@@ -6,20 +6,16 @@ using System.Threading.Tasks;
 
 namespace DataModel.Models
 {
-    public class EnquiryModel
+    public class DownloadModel
     {
-        public string FullName { get; set; }
+        public string Name { get; set; }
 
         public string ContactNo { get; set; }
 
         public string Email { get; set; }
 
-        public string Comments { get; set; }
+        public string Source { get; set; }
 
-        public bool ExistingUser { get; set; }
-
-        public string Trade { get; set; }
+        public string Filepath { get; set; }
     }
-
-   
 }

@@ -45,7 +45,33 @@ namespace BusinessLogic.Enquiry
                         {"Comments",enquiry.Comments },
                         {"ExistingUser",enquiry.ExistingUser },
                         {"Trade",enquiry.Trade }
-                       
+
+
+                    });
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Logger.LogError("Admin:Login", ex.Message);
+                string msg = ex.ToString();
+                throw;
+            }
+        }
+
+        public int InsertDownloads(DownloadModel download)
+        {
+            try
+            {
+                using (var query = new SqlQuery())
+                {
+                    var result = query.ExecuteNonQuery("InsertDownloads", new Dictionary<string, object>
+                    {
+                        {"Name",download.Name },
+                        {"Email",download.Email},
+                        {"ContactNo",download.ContactNo},
+                        {"Source",download.Source },
+                        {"FilePath",download.Filepath }
 
                     });
                     return result;
