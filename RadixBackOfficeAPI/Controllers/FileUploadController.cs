@@ -35,19 +35,52 @@ namespace RadixBackOfficeAPI.Controllers
         [Route("api/UploadFile")]
         public IHttpActionResult UploadFile()
         {
-            string filename = null;
-            var httpRequest = HttpContext.Current.Request;
-            //Upload Image
-            var postedFile = httpRequest.Files["file"];
-            //Create custom filename
-            if (postedFile != null)
+            //string filename = null;
+            //var httpRequest = HttpContext.Current.Request;
+            ////Upload Image
+            //var postedFile = httpRequest.Files["file"];
+            ////Create custom filename
+            //if (postedFile != null)
+            //{
+            //    filename = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
+            //    filename = filename + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
+            //    var filePath = HttpContext.Current.Server.MapPath("~/Downloads/" + filename);
+            //    postedFile.SaveAs(filePath);
+            //}
+            string sPath = "";
+            try
             {
-                filename = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
-                filename = filename + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
-                var filePath = HttpContext.Current.Server.MapPath("~/Downloads/" + filename);
-                postedFile.SaveAs(filePath);
+                int iUploadedCnt = 0;
+
+                // DEFINE THE PATH WHERE WE WANT TO SAVE THE FILES.
+               
+                sPath = System.Web.Hosting.HostingEnvironment.MapPath("~/Downloads/");
+
+                HttpFileCollection hfc = HttpContext.Current.Request.Files;
+
+                // CHECK THE FILE COUNT.
+                for (int iCnt = 0; iCnt <= hfc.Count - 1; iCnt++)
+                {
+                    System.Web.HttpPostedFile hpf = hfc[iCnt];
+
+                    if (hpf.ContentLength > 0)
+                    {
+                        // CHECK IF THE SELECTED FILE(S) ALREADY EXISTS IN FOLDER. (AVOID DUPLICATE)
+                        if (!File.Exists(sPath + Path.GetFileName(hpf.FileName)))
+                        {
+                            // SAVE THE FILES IN THE FOLDER.
+                            hpf.SaveAs(sPath + Path.GetFileName(hpf.FileName));
+                            iUploadedCnt = iUploadedCnt + 1;
+                        }
+                    }
+                }
             }
-            return Ok();
+            catch(Exception ex)
+            {
+                return Ok(ex.Message);
+            }
+
+            return Ok(sPath);
         }
 
 
