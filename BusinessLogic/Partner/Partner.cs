@@ -31,5 +31,34 @@ namespace BusinessLogic.Partner
                 throw;
             }
         }
+
+        public int InsertPartners(PartnerModel Partner)
+        {
+            try
+            {
+                using (var query = new SqlQuery())
+                {
+                    var result = query.ExecuteNonQuery("InsertUpdatePartners", new Dictionary<string, object>
+                    {
+                        {"PartnerId" ,Partner.PartnerId},
+                        {"PartnerName",Partner.PartnerName},
+                        {"ContactNo",Partner.ContactNo },
+                        {"Email",Partner.Email},
+                        {"Address",Partner.Address},
+                       
+                       
+                        {"IsActive",Partner.IsActive }
+
+                    });
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Logger.LogError("Admin:Login", ex.Message);
+                string msg = ex.ToString();
+                throw;
+            }
+        }
     }
 }

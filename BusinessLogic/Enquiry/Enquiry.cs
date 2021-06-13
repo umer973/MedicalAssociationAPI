@@ -69,7 +69,7 @@ namespace BusinessLogic.Enquiry
                     {
                         {"Name",download.Name },
                         {"Email",download.Email},
-                        {"ContactNo",download.ContactNo},
+                        {"ConatcNo",download.ContactNo},
                         {"Source",download.Source },
                         {"FilePath",download.Filepath }
 

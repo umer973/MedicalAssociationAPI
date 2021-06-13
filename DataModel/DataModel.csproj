@@ -45,6 +45,7 @@
     <Compile Include="Models\DownloadModel.cs" />
     <Compile Include="Models\EnquiryModel.cs" />
     <Compile Include="Models\PartnerModel.cs" />
+    <Compile Include="Models\TestimonialsModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

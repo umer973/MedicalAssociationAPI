@@ -10,5 +10,7 @@ namespace BusinessLogic.Partner
     public interface IPartner
     {
         List<PartnerModel> GetPartners();
+
+        int InsertPartners(PartnerModel Partner);
     }
 }

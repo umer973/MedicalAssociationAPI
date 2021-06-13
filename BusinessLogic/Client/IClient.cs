@@ -10,5 +10,9 @@ namespace BusinessLogic.Client
     public interface IClient
     {
         List<ClientModel> GetClients(int productId);
+
+        List<TestimonialsModel> GetTestimonials();
+
+        int InsertTestimonial(TestimonialsModel testimonial);
     }
 }
