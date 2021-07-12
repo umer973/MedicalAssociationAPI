@@ -45,8 +45,8 @@ namespace BusinessLogic.Partner
                         {"ContactNo",Partner.ContactNo },
                         {"Email",Partner.Email},
                         {"Address",Partner.Address},
-                       
-                       
+
+
                         {"IsActive",Partner.IsActive }
 
                     });
@@ -60,5 +60,7 @@ namespace BusinessLogic.Partner
                 throw;
             }
         }
+
+      
     }
 }

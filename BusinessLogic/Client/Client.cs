@@ -12,15 +12,15 @@ namespace BusinessLogic.Client
 
     public class Client : IClient
     {
-        public List<ClientModel> GetClients(int productId)
+        public List<Register> GetClients()
         {
             try
             {
                 using (var query = new SqlQuery())
                 {
-                    var result = query.ExecuteNonQuery<ClientModel>("sp_GetClients", new Dictionary<string, object>
+                    var result = query.ExecuteNonQuery<Register>("sp_GetClients", new Dictionary<string, object>
                     {
-                        {"ProductId",productId }
+                        {"ProductId",1}
                        
                        //  {"ProuctId",user.ProductId}
                     }).ToList();
@@ -33,6 +33,33 @@ namespace BusinessLogic.Client
                 throw;
             }
 
+        }
+        public int InsertClients(Register client)
+        {
+            try
+            {
+                using (var query = new SqlQuery())
+                {
+                    var result = query.ExecuteNonQuery("InsertUpdateClients", new Dictionary<string, object>
+                    {
+
+                        {"ClientId" ,client.ClientId },
+                        {"ClientName",client.ClientName },
+                        {"Logo",client.Logo },
+                        {"ContactNo",client.ContactNo },
+                        {"IsActive",client.IsActive }
+
+
+                    });
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Logger.LogError("Admin:Login", ex.Message);
+                string msg = ex.ToString();
+                throw;
+            }
         }
 
 
@@ -65,10 +92,13 @@ namespace BusinessLogic.Client
                 {
                     var result = query.ExecuteNonQuery("InsertUpdateTestimonials", new Dictionary<string, object>
                     {
-                        {"ClientName",testimonial.ClientName},
-                        {"Logo",testimonial.Logo},
+
+                        {"TestimonialId" ,testimonial.TestimonialId },
                         {"Description",testimonial.Description },
+                        {"Logo",testimonial.Logo },
+                        {"ClientName",testimonial.ClientName },
                         {"IsActive",testimonial.IsActive }
+
 
                     });
                     return result;

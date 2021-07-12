@@ -10,6 +10,7 @@ using System.Net.Http;
 
 namespace RadixBackOfficeAPI.Controllers
 {
+    using BusinessLogic;
     using BusinessLogic.Client;
     using Filters;
     using System.Web.Http;
@@ -17,30 +18,57 @@ namespace RadixBackOfficeAPI.Controllers
     {
         private readonly IClient _IClient;
 
+        private readonly CommonHelper _helper;
+
         public ClientController(IClient iClient)
         {
             _IClient = iClient;
+            _helper = new CommonHelper();
         }
 
         [HttpGet]
         [Route("api/Client")]
 
-        public IHttpActionResult GET(int productId)
+        public IHttpActionResult GET()
         {
 
-            var result = _IClient.GetClients(productId);
-
-            if (result != null)
-            {
-                //GlobalCaching.CacheData(productId.ToString(),result, System.DateTimeOffset.UtcNow.AddDays(1));
-                _IClient.GetClients(productId);
-            }
-
-
+            var result = _IClient.GetClients();
 
             return Ok(result);
 
         }
+
+        [HttpGet]
+        [Route("api/DeleteClient")]
+        public IHttpActionResult DELClient(int clientId)
+        {
+
+            var response = _helper.DeleteData("Clients", "ClientId", clientId.ToString());
+            return Ok(response);
+
+        }
+
+        [HttpPost]
+        [Route("api/SaveClients")]
+        public IHttpActionResult PostClients(JObject request)
+        {
+            try
+            {
+                var clients = JsonConvert.DeserializeObject<Register>(request.ToString());
+                if (clients != null)
+                {
+                    var response = _IClient.InsertClients(clients);
+
+                    return Ok(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return Ok();
+        }
+
 
 
         [HttpPost]
@@ -80,6 +108,19 @@ namespace RadixBackOfficeAPI.Controllers
             }
 
         }
+
+
+        [HttpGet]
+        [Route("api/DeleteTestimonial")]
+        public IHttpActionResult DELTestimonial(int testimonialId)
+        {
+
+            var response = _helper.DeleteData("Testimonials", "TestimonialId", testimonialId.ToString());
+            return Ok(response);
+
+        }
+
+
 
     }
 }

@@ -10,13 +10,13 @@ namespace BusinessLogic.Enquiry
 {
     public class Enquiry : IEnquiry
     {
-        public List<EnquiryModel> GetEnquiry()
+        public List<Registration> GetRegistration()
         {
             try
             {
                 using (var query = new SqlQuery())
                 {
-                    var result = query.ExecuteNonQuery<EnquiryModel>("GetAllEnquiry", new Dictionary<string, object>
+                    var result = query.ExecuteNonQuery<Registration>("GetAllEnquiry", new Dictionary<string, object>
                     {
                         {"PId",1 }
 
@@ -31,21 +31,38 @@ namespace BusinessLogic.Enquiry
             }
         }
 
-        public int InsertEnquiry(EnquiryModel enquiry)
+        public int InsertRegistration(Registration registration)
         {
             try
             {
                 using (var query = new SqlQuery())
                 {
-                    var result = query.ExecuteNonQuery("InsertEnquiry", new Dictionary<string, object>
+                    var result = query.ExecuteNonQuery("Registration", new Dictionary<string, object>
                     {
-                        {"FullName",enquiry.FullName },
-                        {"Email",enquiry.Email},
-                        {"ContactNo",enquiry.ContactNo},
-                        {"Comments",enquiry.Comments },
-                        {"ExistingUser",enquiry.ExistingUser },
-                        {"Trade",enquiry.Trade }
-
+                        { "Logo", registration.PersonalDetails.Logo},
+                        { "UserName", registration.PersonalDetails.UserName},
+                        { "MidName", registration.PersonalDetails.MidName},
+                        { "LastName", registration.PersonalDetails.LastName},
+                        { "FUserName", registration.PersonalDetails.FUserName},
+                        { "FMiddleName", registration.PersonalDetails.FMiddleName},
+                        { "FLastName", registration.PersonalDetails.FLastName},
+                        { "address", registration.AddressDetails.address},
+                        { "country", registration.AddressDetails.country},
+                        { "state", registration.AddressDetails.state},
+                        { "district", registration.AddressDetails.district},
+                        { "policestation", registration.AddressDetails.policestation},
+                        { "street", registration.AddressDetails.street},
+                        { "houseno", registration.AddressDetails.houseno},
+                        { "Laneno", registration.AddressDetails.Laneno},
+                        { "company", registration.PersonalDetails.company},
+                        { "division", registration.PersonalDetails.division},
+                        { "designation", registration.PersonalDetails.designation},
+                        { "employeecode", registration.PersonalDetails.employeecode},
+                        { "joining", registration.PersonalDetails.joining},
+                        { "Email", registration.PersonalDetails.Email},
+                        { "ContactNo", registration.ContactDetails.ContactNo},
+                        { "Comments", registration.ContactDetails.LandlineNo }
+                      
 
                     });
                     return result;

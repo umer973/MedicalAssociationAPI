@@ -9,9 +9,9 @@ namespace BusinessLogic.Enquiry
 {
     public interface IEnquiry
     {
-        int InsertEnquiry(EnquiryModel enquiry);
+        int InsertRegistration(Registration registration);
 
-        List<EnquiryModel> GetEnquiry();
+        List<Registration> GetRegistration();
 
         int InsertDownloads(DownloadModel download);
 

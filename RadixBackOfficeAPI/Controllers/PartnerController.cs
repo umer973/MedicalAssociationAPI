@@ -11,15 +11,19 @@ using System.Web.Http;
 
 namespace RadixBackOfficeAPI.Controllers
 {
+    using BusinessLogic;
     using Filters;
 
     public class PartnerController : ApiController
     {
         private readonly IPartner _IPartner;
 
+        private readonly CommonHelper _helper;
+
         public PartnerController(IPartner IPartner)
         {
             _IPartner = IPartner;
+            _helper = new CommonHelper();
         }
 
         [HttpGet]
@@ -55,5 +59,14 @@ namespace RadixBackOfficeAPI.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        [Route("api/DeletePartner")]
+        public IHttpActionResult DEL(int partnerId)
+        {
+
+            var response = _helper.DeleteData("Partners", "PartnerId", partnerId.ToString());
+            return Ok(response);
+
+        }
     }
 }

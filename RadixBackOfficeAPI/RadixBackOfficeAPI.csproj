@@ -162,6 +162,7 @@
     <Compile Include="Controllers\EnquiryController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\PartnerController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Enumeration\ExceptionType.cs" />
     <Compile Include="Filters\GlobalCaching.cs" />

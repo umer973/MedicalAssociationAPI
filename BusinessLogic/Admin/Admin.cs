@@ -19,11 +19,12 @@ namespace BusinessLogic.Admin
             {
                 using (var query = new SqlQuery())
                 {
-                    var result = query.ExecuteNonQuery<User>("sp_GetLogin", new Dictionary<string, object>
+                    var result = query.ExecuteNonQuery<User>("GetLogin", new Dictionary<string, object>
                     {
-                        {"UserName",user.UserName },
-                        {"Password",user.Password},
-                        {"UserType",user.UserType}
+                         //{"UserName",user.UserName },
+                        {"Email",user.Email},
+                        {"ContactNo",user.ContactNo}
+
                     }).FirstOrDefault();
                     return result;
                 }

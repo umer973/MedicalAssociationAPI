@@ -21,23 +21,24 @@ namespace RadixBackOfficeAPI.Controllers
         }
 
         [HttpPost]
-        [Route("api/Login")]
-        public IHttpActionResult POST(JObject request)
+        [Route("api/postLogin")]
+        public IHttpActionResult Post(JObject request)
         {
             try
             {
                 var user = JsonConvert.DeserializeObject<User>(request.ToString());
                 if (user != null)
                 {
-                    var response = _IAdmin.Login(user);
-                    if (response != null)
-                    {
-                        return Ok(response);
-                    }
-                    else
-                    {
-                        return Ok();
-                    }
+                    //var response = _IAdmin.Login(user);
+                    //if (response != null)
+                    //{
+                    //    return Ok(response);
+                    //}
+                    //else
+                    //{
+                    //    return Ok();
+                    //}
+                    return Ok();
 
                 }
             }

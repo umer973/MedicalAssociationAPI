@@ -8,6 +8,7 @@ namespace DataModel.Models
 {
     public class TestimonialsModel
     {
+        public int TestimonialId { get; set; }
 
         public string Description { get; set; }
 
