@@ -37,32 +37,33 @@ namespace BusinessLogic.Enquiry
             {
                 using (var query = new SqlQuery())
                 {
-                    var result = query.ExecuteNonQuery("Registration", new Dictionary<string, object>
+                    var result = query.ExecuteNonQuery("sp_InsertRegistration", new Dictionary<string, object>
                     {
-                        { "Logo", registration.PersonalDetails.Logo},
-                        { "UserName", registration.PersonalDetails.UserName},
-                        { "MidName", registration.PersonalDetails.MidName},
-                        { "LastName", registration.PersonalDetails.LastName},
-                        { "FUserName", registration.PersonalDetails.FUserName},
-                        { "FMiddleName", registration.PersonalDetails.FMiddleName},
-                        { "FLastName", registration.PersonalDetails.FLastName},
-                        { "address", registration.AddressDetails.address},
-                        { "country", registration.AddressDetails.country},
-                        { "state", registration.AddressDetails.state},
-                        { "district", registration.AddressDetails.district},
-                        { "policestation", registration.AddressDetails.policestation},
-                        { "street", registration.AddressDetails.street},
-                        { "houseno", registration.AddressDetails.houseno},
-                        { "Laneno", registration.AddressDetails.Laneno},
-                        { "company", registration.PersonalDetails.company},
-                        { "division", registration.PersonalDetails.division},
-                        { "designation", registration.PersonalDetails.designation},
-                        { "employeecode", registration.PersonalDetails.employeecode},
-                        { "joining", registration.PersonalDetails.joining},
-                        { "Email", registration.PersonalDetails.Email},
+
+                        { "RegistrationNo", getRandoM()},
+                        { "FirstName", registration.PersonalDetails.FirstName},
+                         { "LastName", registration.PersonalDetails.LastName},
+                        { "MiddleName", registration.PersonalDetails.MiddleName},                      
+                        { "FatherName", registration.PersonalDetails.FatherName},
+                        { "FatherFirstName", registration.PersonalDetails.FatherFirstName},
+                        { "FatherMiddleName", registration.PersonalDetails.FatherMiddleName},
+                        { "CompanyId", registration.PersonalDetails.CompanyId},
+                        { "DivisionId", registration.PersonalDetails.DivisionId},
+                        { "DesignationId", registration.PersonalDetails.DesignationId},
+                        { "EmpCode", registration.PersonalDetails.EmpCode},
+                        { "DateofJoining", registration.PersonalDetails.DateofJoining},
+                        { "ProfilePic", registration.PersonalDetails.ProfilePic},
+                        { "Country", registration.AddressDetails.Country},
+                        { "State", registration.AddressDetails.State},
+                        { "District", registration.AddressDetails.District},
+                        { "PoliceStation", registration.AddressDetails.PoliceStation},
+                        { "Street", registration.AddressDetails.Street},
+                        { "Lane", registration.AddressDetails.Lane},
+                        { "HouseNo", registration.AddressDetails.HouseNo},
+                        { "EmailId", registration.ContactDetails.EmailId},                      
                         { "ContactNo", registration.ContactDetails.ContactNo},
-                        { "Comments", registration.ContactDetails.LandlineNo }
-                      
+                        { "LandlineNo", registration.ContactDetails.LandlineNo },
+
 
                     });
                     return result;
@@ -74,6 +75,14 @@ namespace BusinessLogic.Enquiry
                 string msg = ex.ToString();
                 throw;
             }
+        }
+
+        private object getRandoM()
+        {
+            Random rnd = new Random();
+            int myRandomNo= rnd.Next(10000000, 99999999);
+            string regno = "Reg" + Convert.ToString(myRandomNo);
+            return regno;
         }
 
         public int InsertDownloads(DownloadModel download)

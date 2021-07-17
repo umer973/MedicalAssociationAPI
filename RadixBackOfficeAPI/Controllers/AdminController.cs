@@ -29,17 +29,16 @@ namespace RadixBackOfficeAPI.Controllers
                 var user = JsonConvert.DeserializeObject<User>(request.ToString());
                 if (user != null)
                 {
-                    //var response = _IAdmin.Login(user);
-                    //if (response != null)
-                    //{
-                    //    return Ok(response);
-                    //}
-                    //else
-                    //{
-                    //    return Ok();
-                    //}
-                    return Ok();
-
+                    var response = _IAdmin.Login(user);
+                    if (response != null)
+                    {
+                        return Ok(response);
+                    }
+                    else
+                    {
+                        return Ok();
+                    }
+                   
                 }
             }
             catch (Exception ex)

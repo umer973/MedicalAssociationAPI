@@ -1,7 +1,4 @@
 ﻿
-
-
-
 namespace BusinessLogic.Admin
 {
     using DataModel.Models;
@@ -19,11 +16,12 @@ namespace BusinessLogic.Admin
             {
                 using (var query = new SqlQuery())
                 {
-                    var result = query.ExecuteNonQuery<User>("GetLogin", new Dictionary<string, object>
+                    var result = query.ExecuteNonQuery<User>("sp_Login", new Dictionary<string, object>
                     {
                          //{"UserName",user.UserName },
-                        {"Email",user.Email},
-                        {"ContactNo",user.ContactNo}
+                        {"UserName",user.UserName},
+                        {"Password",user.Password},
+                        {"UseRole",user.UseRole},
 
                     }).FirstOrDefault();
                     return result;

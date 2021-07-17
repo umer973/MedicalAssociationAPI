@@ -28,16 +28,16 @@ namespace RadixBackOfficeAPI.Controllers
                 var registration = JsonConvert.DeserializeObject<Registration>(request.ToString());
                 if (registration != null)
                 {
-                    //var response = _IEnquiry.InsertRegistration(registration);
-                    //if (response != null)
-                    //{
-                    //    return Ok(response);
-                    //}
-                    //else
-                    //{
-                    //    return Ok();
-                    //} 
-                    return Ok();
+                    var response = _IEnquiry.InsertRegistration(registration);
+                    if (response != null)
+                    {
+                        return Ok(response);
+                    }
+                    else
+                    {
+                        return Ok();
+                    }
+
                 }
             }
             catch (Exception ex)
