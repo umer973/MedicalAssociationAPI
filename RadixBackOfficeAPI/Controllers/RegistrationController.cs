@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Web.Http;
 
-namespace RadixBackOfficeAPI.Controllers
+namespace MedicalAssociationAPI.Controllers
 {
     public class RegistrationController : ApiController
     {

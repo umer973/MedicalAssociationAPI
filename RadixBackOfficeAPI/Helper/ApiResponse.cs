@@ -1,6 +1,6 @@
 ﻿
 
-namespace RadixBackOfficeAPI.Helper
+namespace MedicalAssociationAPI.Helper
 {
 
     using System.Net;

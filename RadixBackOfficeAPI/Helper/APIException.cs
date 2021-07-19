@@ -1,10 +1,10 @@
-﻿using RadixBackOfficeAPI.Enumeration;
+﻿using MedicalAssociationAPI.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace RadixBackOfficeAPI.Helper
+namespace MedicalAssociationAPI.Helper
 {
     public class APIException : Exception
     {

@@ -1,6 +1,6 @@
 ﻿
 
-namespace RadixBackOfficeAPI.Filters
+namespace MedicalAssociationAPI.Filters
 {
     using System;
     using System.Net.Http.Headers;

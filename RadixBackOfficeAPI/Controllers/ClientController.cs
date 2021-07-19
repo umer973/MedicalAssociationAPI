@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Http;
 
 
-namespace RadixBackOfficeAPI.Controllers
+namespace MedicalAssociationAPI.Controllers
 {
     using BusinessLogic;
     using BusinessLogic.Client;

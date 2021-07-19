@@ -1,5 +1,5 @@
 ﻿
-namespace RadixBackOfficeAPI.Enumeration
+namespace MedicalAssociationAPI.Enumeration
 {
     public enum ExceptionType:int
     {

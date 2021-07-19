@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http.Filters;
 
-namespace RadixBackOfficeAPI.Helper
+namespace MedicalAssociationAPI.Helper
 {
     public class APIExceptionFilterAttribute: ExceptionFilterAttribute, IExceptionFilter
     {

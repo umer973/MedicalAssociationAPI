@@ -1,6 +1,6 @@
 ﻿
 
-namespace RadixBackOfficeAPI.Controllers
+namespace MedicalAssociationAPI.Controllers
 {
     using System.Web.Http;
     public class TestController : ApiController

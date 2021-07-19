@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.UI.WebControls;
 
-namespace RadixBackOfficeAPI.Controllers
+namespace MedicalAssociationAPI.Controllers
 {
     public class FileUploadController : ApiController
     {

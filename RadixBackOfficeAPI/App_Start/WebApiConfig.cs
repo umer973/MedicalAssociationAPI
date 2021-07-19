@@ -1,6 +1,6 @@
 ﻿
 
-namespace RadixBackOfficeAPI
+namespace MedicalAssociationAPI
 {
     using Helper;
 

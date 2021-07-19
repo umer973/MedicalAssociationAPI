@@ -2,7 +2,7 @@
 
 
 
-namespace RadixBackOfficeAPI.Controllers
+namespace MedicalAssociationAPI.Controllers
 {
     using BusinessLogic.Admin;
     using DataModel.Models;

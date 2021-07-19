@@ -9,7 +9,7 @@
 //using System.Net.Http;
 //using System.Web.Http;
 
-//namespace RadixBackOfficeAPI.Controllers
+//namespace MedicalAssociationAPI.Controllers
 //{
 //    public class EnquiryController : ApiController
 //    {

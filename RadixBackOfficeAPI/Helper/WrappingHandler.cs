@@ -1,7 +1,7 @@
 ﻿
 
 
-namespace RadixBackOfficeAPI.Helper
+namespace MedicalAssociationAPI.Helper
 {
     using System.Collections.Generic;
     using System.Net;

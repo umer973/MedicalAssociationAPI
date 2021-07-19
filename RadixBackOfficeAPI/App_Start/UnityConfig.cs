@@ -1,6 +1,6 @@
 
 
-namespace RadixBackOfficeAPI
+namespace MedicalAssociationAPI
 {
     using BusinessLogic.Admin;
     using BusinessLogic.Client;
