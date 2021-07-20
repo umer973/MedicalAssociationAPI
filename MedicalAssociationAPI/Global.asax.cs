@@ -17,12 +17,23 @@ namespace MedicalAssociationAPI
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
-          
-
+            LoadInitailAppData();        
+         
         }
 
-        
-       
+        private void LoadInitailAppData()
+        {
+            GlobalData global = new GlobalData();
+
+
+            if (CachingData.GetDataFromCache("MasterDataCache") == null)
+            {
+                var result = global.GetInitialData();
+                CachingData.AddCache("MasterDataCache", result);
+                
+            }
+           
+        }
     }
 }
 ;

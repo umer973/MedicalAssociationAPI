@@ -54,24 +54,13 @@ namespace MedicalAssociationAPI.Controllers
 
 
         [HttpGet]
-        [Route("api/GetCompany")]
+        [Route("api/GetMasterData")]
 
         //[WebApiOutputCache(120, 60, false)]
         public IHttpActionResult Get()
         {
 
-            var data = new GlobalData();
-
-            if (CachingData.GetDataFromCache("Company") == null)
-            {
-                var result = data.GetCompanyDetails();
-                CachingData.AddCache("Company", result); 
-                return Ok(result);
-            }
-            else
-            {
-                return Ok(CachingData.GetDataFromCache("Company"));
-            }
+            return Ok(CachingData.GetDataFromCache("MasterDataCache"));
 
         }
 
