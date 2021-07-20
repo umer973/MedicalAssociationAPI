@@ -53,9 +53,9 @@ namespace MedicalAssociationAPI.Attributes
 
             if (userData != null)
             {
-                //identity.AddClaim(new Claim("username", user.username));
-                //identity.AddClaim(new Claim(ClaimTypes.Name, user.username));
-                //context.Validated(identity);
+                identity.AddClaim(new Claim("Role", userData.UseRole));
+                identity.AddClaim(new Claim("Id", Convert.ToString(userData.UserId)));
+               
 
                 ClaimsIdentity oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
                 ClaimsIdentity cookiesIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
@@ -77,7 +77,7 @@ namespace MedicalAssociationAPI.Attributes
             if (_user != null )
             {
                 data.Add("UserId", _user.UserId.ToString());
-                data.Add("UserType", _user.UseRole.ToString());
+                data.Add("Role", _user.UseRole.ToString());
                 data.Add("Password", _user.Password.ToString());
                 
             }

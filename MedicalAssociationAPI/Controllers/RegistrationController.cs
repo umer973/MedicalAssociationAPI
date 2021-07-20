@@ -1,9 +1,11 @@
 ﻿using BusinessLogic;
 using BusinessLogic.Enquiry;
 using DataModel.Models;
+using MedicalAssociationAPI.Filters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Runtime.Caching;
 using System.Web.Http;
 
 namespace MedicalAssociationAPI.Controllers
@@ -12,6 +14,7 @@ namespace MedicalAssociationAPI.Controllers
     {
         private readonly IEnquiry _IEnquiry;
         private readonly CommonHelper _helper;
+
 
         public RegistrationController(IEnquiry _IEnquiry)
         {
@@ -48,5 +51,30 @@ namespace MedicalAssociationAPI.Controllers
 
             return Ok();
         }
+
+
+        [HttpGet]
+        [Route("api/GetCompany")]
+
+        //[WebApiOutputCache(120, 60, false)]
+        public IHttpActionResult Get()
+        {
+
+            var data = new GlobalData();
+
+            if (CachingData.GetDataFromCache("Company") == null)
+            {
+                var result = data.GetCompanyDetails();
+                CachingData.AddCache("Company", result); 
+                return Ok(result);
+            }
+            else
+            {
+                return Ok(CachingData.GetDataFromCache("Company"));
+            }
+
+        }
+
     }
 }
+

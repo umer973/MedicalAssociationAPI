@@ -3,6 +3,7 @@
 
 namespace MedicalAssociationAPI.Helper
 {
+    using Filters;
     using System.Collections.Generic;
     using System.Net;
     using System.Net.Http;
@@ -19,7 +20,7 @@ namespace MedicalAssociationAPI.Helper
             return BuildApiResponse(request, response, true);
 
         }
-
+        [WebApiOutputCache(120, 60, false)]
         private static HttpResponseMessage BuildApiResponse(HttpRequestMessage request, HttpResponseMessage response, bool isLicenseValid)
         {
             object content="";

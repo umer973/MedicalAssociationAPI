@@ -63,6 +63,7 @@
     <Compile Include="CommonHelper.cs" />
     <Compile Include="Enquiry\Enquiry.cs" />
     <Compile Include="Enquiry\IEnquiry.cs" />
+    <Compile Include="GlobalData.cs" />
     <Compile Include="Partner\IPartner.cs" />
     <Compile Include="Partner\Partner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
