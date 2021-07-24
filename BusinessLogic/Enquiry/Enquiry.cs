@@ -5,30 +5,48 @@ using System.Text;
 using System.Threading.Tasks;
 using DataModel.Models;
 using DbHelper.DbContext;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace BusinessLogic.Enquiry
 {
     public class Enquiry : IEnquiry
     {
-        public List<Registration> GetRegistration()
+
+        private readonly SqlQuery query;
+        private readonly SqlConnection con;
+        DataSet result = new DataSet();
+        Dictionary<string, object> resultSet = new Dictionary<string, object>();
+
+        public Enquiry()
+        {
+            query = new SqlQuery();
+            con = new SqlConnection(query.Database.Connection.ConnectionString);
+        }
+
+        public object GetAllRegistrations()
         {
             try
             {
-                using (var query = new SqlQuery())
-                {
-                    var result = query.ExecuteNonQuery<Registration>("GetAllEnquiry", new Dictionary<string, object>
-                    {
-                        {"PId",1 }
+                
 
-                    }).ToList();
-                    return result;
-                }
+                SqlCommand cmd = new SqlCommand("GetAllRegistrations", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(result); 
+                
+                if(result.Tables.Count>0)
+                {
+                    resultSet.Add("Registration", result.Tables[0].Rows.Count > 0 ? result.Tables[0] : null);
+                }             
+
             }
             catch (Exception ex)
             {
-                //Logger.LogError("Client:GetClients", ex.Message);
+                //Logger.LogError("Admin:Login", ex.Message);
                 throw;
             }
+            return resultSet;
         }
 
         public int InsertRegistration(Registration registration)
@@ -43,7 +61,7 @@ namespace BusinessLogic.Enquiry
                         { "RegistrationNo", getRandoM()},
                         { "FirstName", registration.PersonalDetails.FirstName},
                          { "LastName", registration.PersonalDetails.LastName},
-                        { "MiddleName", registration.PersonalDetails.MiddleName},                      
+                        { "MiddleName", registration.PersonalDetails.MiddleName},
                         { "FatherName", registration.PersonalDetails.FatherName},
                         { "FatherFirstName", registration.PersonalDetails.FatherFirstName},
                         { "FatherMiddleName", registration.PersonalDetails.FatherMiddleName},
@@ -60,7 +78,7 @@ namespace BusinessLogic.Enquiry
                         { "Street", registration.AddressDetails.Street},
                         { "Lane", registration.AddressDetails.Lane},
                         { "HouseNo", registration.AddressDetails.HouseNo},
-                        { "EmailId", registration.ContactDetails.EmailId},                      
+                        { "EmailId", registration.ContactDetails.EmailId},
                         { "ContactNo", registration.ContactDetails.ContactNo},
                         { "LandlineNo", registration.ContactDetails.LandlineNo },
 
@@ -80,7 +98,7 @@ namespace BusinessLogic.Enquiry
         private object getRandoM()
         {
             Random rnd = new Random();
-            int myRandomNo= rnd.Next(10000000, 99999999);
+            int myRandomNo = rnd.Next(10000000, 99999999);
             string regno = "Reg" + Convert.ToString(myRandomNo);
             return regno;
         }

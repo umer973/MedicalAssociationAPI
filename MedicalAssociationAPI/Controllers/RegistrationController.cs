@@ -5,6 +5,7 @@ using MedicalAssociationAPI.Filters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Runtime.Caching;
 using System.Web.Http;
 
@@ -61,6 +62,18 @@ namespace MedicalAssociationAPI.Controllers
         {
 
             return Ok(CachingData.GetDataFromCache("MasterDataCache"));
+
+        }
+
+
+        [HttpGet]
+        [Route("api/GetAllRegistration")]
+
+        //[WebApiOutputCache(120, 60, false)]
+        public IHttpActionResult GetAllRegistration()
+        {
+                  
+            return Ok(_IEnquiry.GetAllRegistrations());
 
         }
 

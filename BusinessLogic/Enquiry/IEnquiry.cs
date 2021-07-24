@@ -11,7 +11,7 @@ namespace BusinessLogic.Enquiry
     {
         int InsertRegistration(Registration registration);
 
-        List<Registration> GetRegistration();
+        Object GetAllRegistrations();
 
         int InsertDownloads(DownloadModel download);
 
