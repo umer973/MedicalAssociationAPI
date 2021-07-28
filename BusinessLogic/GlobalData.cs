@@ -55,8 +55,6 @@ namespace BusinessLogic
                 resultData.Add("Division", ds.Tables[5]);
             }
 
-
-
             return resultData;
 
         }
