@@ -211,6 +211,7 @@
     <None Include="Properties\PublishProfiles\api.pubxml" />
     <None Include="Properties\PublishProfiles\backofficeservice.theradix.in - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\cpanel.theradix.in - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\medicalservice.theradix.in - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\RadixApi.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

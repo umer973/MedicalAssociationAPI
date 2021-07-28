@@ -54,8 +54,10 @@ namespace BusinessLogic
             {
                 resultData.Add("Division", ds.Tables[5]);
             }
-
-
+            if (ds.Tables[6].Rows.Count > 0)
+            {
+                resultData.Add("PoliceStation", ds.Tables[6]);
+            }
 
             return resultData;
 
