@@ -40,8 +40,21 @@ namespace BusinessLogic
             }
             if (ds.Tables[2].Rows.Count > 0)
             {
-                resultData.Add("Division", ds.Tables[2]);
+                resultData.Add("Country", ds.Tables[2]);
             }
+            if (ds.Tables[3].Rows.Count > 0)
+            {
+                resultData.Add("State", ds.Tables[3]);
+            }
+            if (ds.Tables[4].Rows.Count > 0)
+            {
+                resultData.Add("District", ds.Tables[4]);
+            }
+            if (ds.Tables[5].Rows.Count > 0)
+            {
+                resultData.Add("Division", ds.Tables[5]);
+            }
+
 
 
             return resultData;
